@@ -208,9 +208,30 @@ export default function Home() {
 
           {/* Content Box */}
           <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-100 rounded-2xl p-6 sm:p-8 mb-8">
-            <p className="text-lg text-gray-700 leading-relaxed">
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
               Je m'appelle <strong className="text-blue-900 font-semibold">François Folliot</strong>, <strong className="text-blue-900 font-semibold">Fondateur d'Artisan Électricien Folliot</strong>. Depuis <strong className="text-blue-900 font-semibold">1990</strong> je suis votre <strong className="text-blue-900 font-semibold">expert en électricité basé dans le 14ème à Paris</strong>. Avec <strong className="text-blue-900 font-semibold">toutes ces années d'expérience</strong>, je mets mon <strong className="text-blue-900 font-semibold">savoir-faire</strong> au service des <strong className="text-blue-900 font-semibold">particuliers et professionnels</strong>. J'interviens rapidement pour tous vos travaux : <strong className="text-blue-900 font-semibold">dépannage, installation, rénovation et mise aux normes électriques</strong>.
             </p>
+            
+            <h3 className="text-xl font-bold text-blue-900 mb-4">Pourquoi me faire confiance ?</h3>
+            <ul className="space-y-3">
+              {[
+                `Un seul interlocuteur — De la prise d'appel à la fin du chantier, c'est toujours moi`,
+                `Aucune sous-traitance — Je réalise moi-même toutes les interventions`,
+                `Ma réputation en jeu — Chaque chantier engage mon nom et ma réputation`,
+                `Plus de 650 interventions réussies chaque année`,
+                `Une note de 4.9/5 sur Google, vérifiée par mes clients`,
+                `Une garantie décennale sur tous mes travaux`,
+                `Certification RGE (Reconnu Garant de l'Environnement)`,
+                `Qualification Qualifelec pour les installations électriques`
+              ].map((item, index) => (
+                <li key={index} className="flex items-start">
+                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                  </svg>
+                  <span className="text-gray-700">{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* CTA Button */}
@@ -223,18 +244,35 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+          {/* Stats Grid - 4 Cards like mockup */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
             {[
-              { number: '30+', label: "Années d'Expérience", icon: '🏆' },
-              { number: '650+', label: 'Interventions / An', icon: '⚡' },
-              { number: '100%', label: 'Devis Gratuits', icon: '📋' },
-              { number: '4.5/5', label: 'Avis Clients', icon: '⭐' }
+              { 
+                number: '+30', 
+                label: "ans d'expérience",
+                desc: "Une expertise éprouvée pour des installations électriques fiables et durables à Paris et en Île-de-France."
+              },
+              { 
+                number: '+650', 
+                label: 'clients satisfaits',
+                desc: 'Plus de 650 interventions réussies, avec des solutions adaptées aux besoins de nos clients.'
+              },
+              { 
+                number: '1', 
+                label: 'artisan électricien',
+                desc: 'Un professionnel unique et dédié pour un service personnalisé et de qualité et à votre écoute.'
+              },
+              { 
+                number: '4.9/5', 
+                label: 'avis google',
+                desc: 'Une note attribuée par nos clients satisfaits, à Paris et en petite couronne.'
+              }
             ].map((stat, index) => (
-              <div key={index} className="text-center p-6 rounded-xl bg-gradient-to-br from-gray-50 to-white border border-gray-100 hover:border-blue-200 transition">
-                <div className="text-4xl mb-3">{stat.icon}</div>
+              <div key={index} className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 border border-gray-200 hover:border-blue-300 transition">
                 <div className="text-3xl font-black text-blue-600 mb-2">{stat.number}</div>
-                <div className="text-gray-600 text-sm">{stat.label}</div>
+                <div className="text-gray-800 font-semibold text-sm mb-3 uppercase">{stat.label}</div>
+                <div className="border-t border-gray-300 pt-3"></div>
+                <p className="text-gray-600 text-sm leading-relaxed mt-3">{stat.desc}</p>
               </div>
             ))}
           </div>
