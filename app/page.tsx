@@ -205,11 +205,11 @@ export default function Home() {
                 <h3 className="text-xl font-bold text-blue-900 mb-4">Pourquoi faire appel à moi ?</h3>
                 <ul className="space-y-3">
                   {[
-                    'Un seul interlocuteur — De la prise d'appel à la fin du chantier, c'est toujours moi',
-                    'Aucune sous-traitance — Je réalise moi-même toutes les interventions',
-                    'Ma réputation en jeu — Chaque chantier engage mon nom et ma réputation',
-                    'Plus de 650 interventions réussies chaque année',
-                    'Une note de 4.5/5 sur Google, vérifiée par mes clients'
+                    `Un seul interlocuteur — De la prise d'appel à la fin du chantier, c'est toujours moi`,
+                    `Aucune sous-traitance — Je réalise moi-même toutes les interventions`,
+                    `Ma réputation en jeu — Chaque chantier engage mon nom et ma réputation`,
+                    `Plus de 650 interventions réussies chaque année`,
+                    `Une note de 4.5/5 sur Google, vérifiée par mes clients`
                   ].map((item, index) => (
                     <li key={index} className="flex items-start">
                       <svg className="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
@@ -224,8 +224,8 @@ export default function Home() {
             
             <div className="grid grid-cols-2 gap-6">
               {[
-                { number: '30+', label: 'Années d'expérience', icon: '🎯' },
-                { number: '650+', label: 'Interventions/an', icon: '⚡' },
+                { number: '30+', label: `Années d'expérience`, icon: '🎯' },
+                { number: '650+', label: `Interventions/an`, icon: '⚡' },
                 { number: '4.5/5', label: 'Avis Google', icon: '⭐' },
                 { number: '100%', label: 'Satisfaction client', icon: '✅' }
               ].map((stat, index) => (
