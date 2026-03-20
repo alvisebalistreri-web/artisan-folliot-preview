@@ -236,114 +236,66 @@ export default function Home() {
             <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mt-6"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: '🔌',
                 color: 'from-blue-500 to-blue-700',
-                title: 'Mise aux Normes NFC 15-100',
-                desc: 'Diagnostic complet, remplacement de tableau, mise à la terre, certification Consuel.',
-                delay: 'Devis gratuit sous 24h',
+                title: 'Mise aux Normes',
                 link: '/mise-aux-normes-electriques-ile-de-france/'
               },
               {
                 icon: '🏗️',
                 color: 'from-orange-500 to-orange-700',
                 title: 'Rénovation Électrique',
-                desc: 'Appartements anciens, maisons, bureaux. Mise en sécurité loi ALUR.',
-                delay: 'Devis sous 24h',
                 link: '/renovation-electrique-complete-ile-de-france/'
               },
               {
                 icon: '🚨',
                 color: 'from-red-500 to-red-700',
                 title: 'Dépannage sur Devis',
-                desc: 'Panne, court-circuit, disjoncteur. Intervention sur rendez-vous.',
-                delay: 'Lun-Ven 8h-19h | Sam 8h-17h',
                 link: '/depannage-electrique-ile-de-france/'
               },
               {
                 icon: '⚡',
                 color: 'from-yellow-500 to-yellow-700',
                 title: 'Tableau Électrique',
-                desc: 'Installation, remplacement, ajout de circuits, parafoudre, délesteur.',
-                delay: 'Travaux sous 3-5 jours',
                 link: '/tableau-electrique-protection-ile-de-france/'
               },
               {
                 icon: '🏠',
                 color: 'from-purple-500 to-purple-700',
-                title: 'Domotique & Connecté',
-                desc: 'Éclairage, thermostats, volets, alarmes. Contrôle via smartphone.',
-                delay: 'Devis sous 48h',
+                title: 'Domotique',
                 link: '/domotique-maison-connectee-ile-de-france/'
               },
               {
                 icon: '🔋',
                 color: 'from-green-500 to-green-700',
                 title: 'Borne Recharge VE',
-                desc: 'Wallbox 7-22kW, aide ADVENIR, qualification IRVE.',
-                delay: 'Installation sous 3-5 jours',
                 link: '/borne-recharge-vehicule-electrique-ile-de-france/'
-              },
-              {
-                icon: '🔍',
-                color: 'from-indigo-500 to-indigo-700',
-                title: 'Diagnostic Électrique',
-                desc: 'Obligatoire vente/location +15 ans. Contrôle complet de votre installation.',
-                delay: 'Rapport sous 48h',
-                link: '/diagnostic-electrique-ile-de-france/'
-              },
-              {
-                icon: '💡',
-                color: 'from-cyan-500 to-cyan-700',
-                title: 'Éclairage Intérieur',
-                desc: 'Spots LED, appliques, lustres. Optimisation énergétique et design.',
-                delay: 'Devis gratuit sous 24h',
-                link: '/eclairage-interieur-ile-de-france/'
               }
             ].map((service, index) => (
               <div key={index} className="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-2xl transition-all duration-300 group">
-                {/* Photo Header with Gradient Overlay */}
-                <div className={`relative h-40 bg-gradient-to-br ${service.color} overflow-hidden`}>
-                  <div className="absolute inset-0 bg-black/20"></div>
+                {/* Header with Gradient */}
+                <div className={`relative h-48 bg-gradient-to-br ${service.color} overflow-hidden`}>
+                  <div className="absolute inset-0 bg-black/10"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-7xl transform group-hover:scale-110 transition duration-300 filter drop-shadow-lg">
+                    <div className="text-8xl transform group-hover:scale-110 transition duration-300 filter drop-shadow-2xl">
                       {service.icon}
                     </div>
-                  </div>
-                  {/* Corner Badge */}
-                  <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                    <div className="text-xs font-bold text-gray-700">Service Pro</div>
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition leading-tight">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition text-center">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">
-                    {service.desc}
-                  </p>
                   
-                  {/* Delay Badge */}
-                  <div className="bg-blue-50 rounded-lg px-4 py-3 mb-5">
-                    <div className="flex items-center text-xs text-blue-800">
-                      <span className="mr-2">⏱️</span>
-                      <span className="font-semibold">{service.delay}</span>
-                    </div>
-                  </div>
-
-                  {/* Buttons */}
-                  <div className="flex flex-col gap-2">
-                    <a href={service.link} className="text-center text-blue-600 font-semibold hover:text-blue-800 transition text-sm py-2">
-                      En savoir plus →
-                    </a>
-                    <a href="#contact" className="bg-gradient-to-r from-blue-600 to-blue-800 text-white text-center py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-900 transition text-sm">
-                      Demander un devis
-                    </a>
-                  </div>
+                  {/* Single CTA Button */}
+                  <a href="#contact" className="block w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white text-center py-4 rounded-xl font-bold hover:from-blue-700 hover:to-blue-900 transition shadow-lg">
+                    📞 Demander un devis
+                  </a>
                 </div>
               </div>
             ))}
