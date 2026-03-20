@@ -182,60 +182,61 @@ export default function Home() {
       </section>
 
       {/* ==================== ABOUT SECTION ==================== */}
-      <section className="py-20 bg-white">
+      <section id="about" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Artisan Électricien Folliot — Mon Engagement à Votre Service
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto"></div>
+          {/* Label */}
+          <div className="inline-block bg-blue-50 text-blue-600 px-4 py-2 rounded-lg font-semibold text-sm mb-6">
+            À PROPOS
           </div>
-          
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Je m'appelle <strong className="text-blue-900 font-semibold">Monsieur Folliot</strong> et je suis l'artisan derrière <strong className="text-blue-900 font-semibold">Artisan Électricien Folliot</strong>. Depuis <strong className="text-blue-900 font-semibold">1990</strong>, j'ai bâti mon entreprise sur une valeur simple : <strong className="text-blue-900 font-semibold">chaque client mérite une intervention personnelle, soignée et transparente</strong>.
-              </p>
-              
-              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                Tout a commencé il y a plus de <strong className="text-blue-900 font-semibold">30 ans</strong>, quand j'ai décidé de créer une entreprise d'électricité générale où <strong className="text-blue-900 font-semibold">je serais l'unique intervenant</strong>. Pas de sous-traitance, pas d'équipe inconnue : <strong className="text-blue-900 font-semibold">c'est moi qui intervient chez vous, du premier appel à la fin du chantier</strong>.
-              </p>
-              
-              <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6">
-                <h3 className="text-xl font-bold text-blue-900 mb-4">Pourquoi faire appel à moi ?</h3>
-                <ul className="space-y-3">
-                  {[
-                    `Un seul interlocuteur — De la prise d'appel à la fin du chantier, c'est toujours moi`,
-                    `Aucune sous-traitance — Je réalise moi-même toutes les interventions`,
-                    `Ma réputation en jeu — Chaque chantier engage mon nom et ma réputation`,
-                    `Plus de 650 interventions réussies chaque année`,
-                    `Une note de 4.5/5 sur Google, vérifiée par mes clients`
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start">
-                      <svg className="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                      </svg>
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+
+          {/* Title */}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+            Un Artisan Électricien à Votre Service<br />
+            <span className="text-blue-600">depuis 1990</span>
+          </h2>
+
+          {/* Stats Box Blue */}
+          <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 mb-8 shadow-xl">
+            <div className="flex items-center space-x-6">
+              <div className="text-6xl sm:text-7xl font-black text-yellow-400">+30</div>
+              <div className="text-white">
+                <div className="text-xl sm:text-2xl font-bold">ANS D'EXPÉRIENCE</div>
+                <div className="text-blue-200 text-sm sm:text-base mt-1">À votre service depuis plus de trois décennies</div>
               </div>
             </div>
-            
-            <div className="grid grid-cols-2 gap-6">
-              {[
-                { number: '30+', label: `Années d'expérience`, icon: '🎯' },
-                { number: '650+', label: `Interventions/an`, icon: '⚡' },
-                { number: '4.5/5', label: 'Avis Google', icon: '⭐' },
-                { number: '100%', label: 'Satisfaction client', icon: '✅' }
-              ].map((stat, index) => (
-                <div key={index} className="bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-xl p-6 text-center transform hover:scale-105 transition">
-                  <div className="text-4xl mb-2">{stat.icon}</div>
-                  <div className="text-4xl font-bold mb-2">{stat.number}</div>
-                  <div className="text-blue-100 text-sm">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+          </div>
+
+          {/* Content Box */}
+          <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-100 rounded-2xl p-6 sm:p-8 mb-8">
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Je m'appelle <strong className="text-blue-900 font-semibold">François Folliot</strong>, <strong className="text-blue-900 font-semibold">Fondateur de Artisan Électricien Folliot</strong>. Depuis <strong className="text-blue-900 font-semibold">1990</strong> je suis votre <strong className="text-blue-900 font-semibold">expert en électricité basé à Paris 14ème</strong>. Avec toute ces années d'expérience, je mets mon savoir faire au service des <strong className="text-blue-900 font-semibold">particuliers et professionnels</strong>. J'interviens rapidement pour tous vos travaux : <strong className="text-blue-900 font-semibold">dépannage, installation, rénovation et mise aux normes électriques</strong>.
+            </p>
+          </div>
+
+          {/* CTA Button */}
+          <div className="flex flex-wrap gap-4">
+            <a href="#contact" className="inline-block bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition transform hover:scale-105 shadow-lg">
+              DISCOVER MORE
+            </a>
+            <a href="#services" className="inline-block bg-white border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition">
+              Voir mes services
+            </a>
+          </div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+            {[
+              { number: '30+', label: "Années d'Expérience", icon: '🏆' },
+              { number: '650+', label: 'Interventions / An', icon: '⚡' },
+              { number: '100%', label: 'Devis Gratuits', icon: '📋' },
+              { number: '4.5/5', label: 'Avis Clients', icon: '⭐' }
+            ].map((stat, index) => (
+              <div key={index} className="text-center p-6 rounded-xl bg-gradient-to-br from-gray-50 to-white border border-gray-100 hover:border-blue-200 transition">
+                <div className="text-4xl mb-3">{stat.icon}</div>
+                <div className="text-3xl font-black text-blue-600 mb-2">{stat.number}</div>
+                <div className="text-gray-600 text-sm">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
