@@ -56,11 +56,11 @@ export default function Home() {
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-6">
-                Électricien Paris 14ème & Île-de-France — Artisan Électricien Folliot
+                Électricien Paris 14ème & Île-de-France
               </h1>
               
               <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-                Votre <strong className="text-white font-semibold">électricien Paris 14ème</strong> de confiance depuis <strong className="text-white font-semibold">1990</strong>. J'interviens personnellement pour tous vos travaux électriques à Paris et en Île-de-France.
+                Votre artisan électricien de confiance depuis <strong className="text-white font-semibold">1990</strong>. J'interviens personnellement pour tous vos travaux électriques à Paris et en Île-de-France.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -117,10 +117,10 @@ export default function Home() {
           <div className="text-center mb-16">
             <div className="inline-block bg-blue-50 text-blue-600 px-4 py-2 rounded-lg font-semibold text-sm mb-4">À PROPOS</div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Électricien Paris 14ème — Artisan Électricien Folliot à Votre Service
+              Artisan Électricien Folliot — Mon Engagement à Votre Service
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              En tant qu'<strong className="text-gray-900">électricien Paris 14ème</strong> depuis 1990, je mets mon expertise à votre service
+              Plus de 30 ans d'expertise en électricité générale au service des particuliers et professionnels
             </p>
             <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mt-6"></div>
           </div>
@@ -132,7 +132,7 @@ export default function Home() {
                 Je m'appelle <strong className="text-blue-900 font-semibold">Monsieur Folliot</strong> et je suis l'artisan derrière <strong className="text-blue-900 font-semibold">Artisan Électricien Folliot</strong>. Depuis <strong className="text-blue-900 font-semibold">1990</strong>, j'ai bâti mon entreprise sur une valeur simple : <strong className="text-blue-900 font-semibold">chaque client mérite une intervention personnelle, soignée et transparente</strong>.
               </p>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                En tant qu'<strong className="text-blue-900 font-semibold">électricien Paris 14ème</strong>, j'interviens personnellement pour tous vos travaux d'électricité générale. Mon expertise d'<strong className="text-blue-900 font-semibold">électricien Paris 14ème</strong> me permet de diagnostiquer rapidement n'importe quel problème électrique et de vous proposer la solution la plus adaptée à votre budget.
+                Basé à <strong className="text-blue-900 font-semibold">Paris 14ème</strong>, j'interviens personnellement pour tous vos travaux d'électricité générale. Mon expérience me permet de diagnostiquer rapidement n'importe quel problème et de vous proposer la solution la plus adaptée à votre budget.
               </p>
 
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Mon histoire</h3>
@@ -234,10 +234,10 @@ export default function Home() {
           <div className="text-center mb-16">
             <div className="inline-block bg-blue-50 text-blue-600 px-4 py-2 rounded-lg font-semibold text-sm mb-4">MES SERVICES</div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Électricien Paris 14ème — Mes Services d'Électricité Générale
+              Mes Services d'Électricité Générale
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              En tant qu'<strong className="text-gray-900">électricien Paris 14ème</strong>, je vous propose une gamme complète de services électriques
+              Une gamme complète de prestations pour particuliers et professionnels, dans le respect des normes NFC 15-100
             </p>
             <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mt-6"></div>
           </div>
@@ -340,7 +340,7 @@ export default function Home() {
                 <div className="relative h-56 overflow-hidden">
                   <img 
                     src={service.image} 
-                    alt={`Électricien Paris 14ème - ${service.title} - Artisan Électricien Folliot`}
+                    alt={service.title}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -389,10 +389,10 @@ export default function Home() {
           <div className="text-center mb-16">
             <div className="inline-block bg-blue-50 text-blue-600 px-4 py-2 rounded-lg font-semibold text-sm mb-4">POURQUOI ME CHOISIR</div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Pourquoi Choisir Votre Électricien Paris 14ème ?
+              Pourquoi Choisir Artisan Électricien Folliot ?
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choisir le bon <strong className="text-gray-900">électricien Paris 14ème</strong> est crucial pour la sécurité et la durabilité de votre installation
+              Choisir le bon électricien est crucial pour la sécurité et la durabilité de votre installation électrique
             </p>
             <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mt-6"></div>
           </div>
@@ -519,10 +519,10 @@ export default function Home() {
           <div className="text-center mb-16">
             <div className="inline-block bg-blue-50 text-blue-600 px-4 py-2 rounded-lg font-semibold text-sm mb-4">ZONES D'INTERVENTION</div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              Électricien Paris 14ème — Mes Zones d'Intervention en Île-de-France
+              Mes Zones d'Intervention en Île-de-France
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              En tant qu'<strong className="text-gray-900">électricien Paris 14ème</strong>, j'interviens personnellement sur devis sur l'ensemble de l'Île-de-France
+              J'interviens personnellement sur devis sur Paris et toute l'Île-de-France (75, 92, 94)
             </p>
             <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mt-6"></div>
           </div>
