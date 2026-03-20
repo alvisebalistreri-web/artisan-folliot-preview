@@ -383,7 +383,7 @@ export default function Home() {
                 name: 'Marie L.',
                 location: 'Paris 14ème',
                 rating: 5,
-                text: 'Monsieur Folliot a rénové notre appartement de 80m² dans le 14ème. Du devis à la livraison, tout s'est parfaitement déroulé. Il a été professionnel, ponctuel et le travail est impeccable.',
+                text: `Monsieur Folliot a rénové notre appartement de 80m² dans le 14ème. Du devis à la livraison, tout s'est parfaitement déroulé. Il a été professionnel, ponctuel et le travail est impeccable.`,
                 project: 'Rénovation électrique complète — T3 80m²'
               },
               {
