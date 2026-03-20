@@ -314,19 +314,19 @@ export default function Home() {
                 cta: 'DEMANDER UN DEVIS DOMOTIQUE'
               },
               {
-                image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=500&h=350&fit=crop',
-                icon: '🔋',
-                title: 'Borne de Recharge Véhicule Électrique',
+                image: 'https://images.unsplash.com/photo-1621905252472-9430a6a5a6d5?w=500&h=350&fit=crop',
+                icon: '🔧',
+                title: 'Maintenance Électrique Préventive',
                 points: [
-                  'Installation de Wallbox 7kW, 11kW, 22kW',
-                  'Borne en garage ou en extérieur',
-                  'Raccordement au tableau électrique',
-                  'Demande d\'aides ADVENIR (jusqu\'à 500€)',
-                  'Qualification IRVE',
-                  'Conseil personnalisé'
+                  'Contrôle périodique de votre installation électrique',
+                  'Vérification des tableaux et disjoncteurs',
+                  'Détection précoce des usures et anomalies',
+                  'Nettoyage et serrage des connexions',
+                  'Rapport détaillé avec recommandations',
+                  'Contrats de maintenance annuelle disponibles'
                 ],
-                link: '/borne-recharge-vehicule-electrique-ile-de-france/',
-                cta: 'DEMANDER UN DEVIS BORNE VE'
+                link: '/maintenance-electrique-ile-de-france/',
+                cta: 'DEMANDER UN CONTRAT DE MAINTENANCE'
               }
             ].map((service, index) => (
               <div key={index} className="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-2xl transition-all duration-300">
