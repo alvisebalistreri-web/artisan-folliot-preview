@@ -742,6 +742,57 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ==================== FAQ ==================== */}
+      <section id="faq" className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-block bg-blue-50 text-blue-600 px-4 py-2 rounded-lg font-semibold text-sm mb-4">FAQ</div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Questions Fréquentes sur nos Services d'Électricité
+            </h2>
+            <p className="text-xl text-gray-600">
+              Toutes les réponses à vos questions sur nos prestations d'électricien à Paris et en Île-de-France
+            </p>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mt-6"></div>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                question: 'Quel est le prix d\'une mise aux normes électrique en Île-de-France ?',
+                answer: 'Le prix d\'une mise aux normes électriques dépend de plusieurs facteurs : la superficie de votre logement, l\'état de l\'installation existante et le nombre de circuits à modifier. Pour un appartement de 80m², comptez entre 3 000€ et 6 000€. Je vous propose un <strong>devis gratuit et détaillé sous 24-48h</strong> après visite de votre installation.'
+              },
+              {
+                question: 'Combien coûte un devis pour un électricien à Paris 14ème ?',
+                answer: 'Tous mes devis sont <strong>100% gratuits et sans engagement</strong>, que vous soyez à Paris 14ème ou dans toute l\'Île-de-France. Je me déplace pour évaluer vos besoins et vous remettre une estimation précise et transparente.'
+              },
+              {
+                question: 'Quels sont les délais d\'intervention pour un dépannage électrique ?',
+                answer: 'J\'interviens <strong>sur rendez-vous du lundi au vendredi de 8h à 19h et le samedi de 8h à 17h</strong>. Pour les dépannages, je vous propose un créneau sous 24-48h selon la disponibilité. En cas d\'urgence (odeur de brûlé, étincelles), contactez-moi immédiatement.'
+              },
+              {
+                question: 'La garantie décennale est-elle incluse dans tous vos travaux ?',
+                answer: 'Oui, absolument. <strong>Toutes mes interventions sont couvertes par la garantie décennale</strong> (valable 10 ans), ainsi que par mon assurance Responsabilité Civile Professionnelle. Vous êtes également protégé par ma certification RGE et ma qualification Qualifelec.'
+              }
+            ].map((faq, index) => (
+              <div key={index} className="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition">
+                <h3 className="text-lg font-bold text-gray-900 mb-3 flex items-start">
+                  <span className="text-blue-600 mr-3 flex-shrink-0">❓</span>
+                  {faq.question}
+                </h3>
+                <p className="text-gray-700 leading-relaxed pl-8" dangerouslySetInnerHTML={{ __html: faq.answer }} />
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <a href="#contact" className="inline-flex items-center bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-900 transition shadow-lg">
+              📞 Une autre question ? Contactez-moi
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ==================== CTA FINAL ==================== */}
       <section id="contact" className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
