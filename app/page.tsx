@@ -436,6 +436,95 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ==================== REALISATIONS ==================== */}
+      <section id="realisations" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-block bg-blue-50 text-blue-600 px-4 py-2 rounded-lg font-semibold text-sm mb-4">RÉALISATIONS</div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Nos Réalisations en Électricité Générale
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Découvrez quelques exemples de nos interventions réalisées à Paris et en Île-de-France
+            </p>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mt-6"></div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                image: 'https://images.unsplash.com/photo-1558402529-d2638a7045e0?w=500&h=350&fit=crop',
+                title: 'Mise aux normes électrique complète',
+                location: 'Paris 14ème',
+                service: 'Mise aux Normes NFC 15-100',
+                link: '/mise-aux-normes-electriques-ile-de-france/'
+              },
+              {
+                image: 'https://images.unsplash.com/photo-1581092921461-eab62e97a782?w=500&h=350&fit=crop',
+                title: 'Rénovation électrique appartement haussmannien',
+                location: 'Paris 7ème',
+                service: 'Rénovation Électrique',
+                link: '/renovation-electrique-complete-ile-de-france/'
+              },
+              {
+                image: 'https://images.unsplash.com/photo-1555664424-778a6902201b?w=500&h=350&fit=crop',
+                title: 'Installation tableau électrique avec protection',
+                location: 'Montrouge',
+                service: 'Tableau Électrique',
+                link: '/tableau-electrique-protection-ile-de-france/'
+              }
+            ].map((project, index) => (
+              <div key={index} className="group">
+                <div className="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-2xl transition-all duration-300">
+                  {/* Photo */}
+                  <div className="relative h-64 overflow-hidden">
+                    <img 
+                      src={project.image} 
+                      alt={`Électricien Paris - ${project.title} - ${project.location}`}
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition duration-300"
+                    />
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    {/* Location Badge */}
+                    <div className="flex items-center text-sm text-gray-500 mb-3">
+                      <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"/>
+                      </svg>
+                      {project.location}
+                    </div>
+
+                    {/* Title H3 */}
+                    <h3 className="text-lg font-bold text-gray-900 mb-4 leading-tight">
+                      {project.title}
+                    </h3>
+
+                    {/* Service Link */}
+                    <a href={project.link} className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800 transition mb-4">
+                      <span className="mr-2">🔧</span>
+                      {project.service}
+                      <span className="ml-1">→</span>
+                    </a>
+
+                    {/* CTA Button */}
+                    <a href="#contact" className="block w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 text-center py-3 rounded-lg font-bold hover:from-yellow-300 hover:to-yellow-400 transition shadow-lg text-sm">
+                      Demander un devis similaire
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <a href="#contact" className="inline-flex items-center bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-900 transition shadow-lg">
+              📞 Voir tous nos projets
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ==================== TESTIMONIALS ==================== */}
       <section id="temoignages" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
