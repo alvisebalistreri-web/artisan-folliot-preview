@@ -239,62 +239,136 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: '🔌',
-                color: 'from-blue-500 to-blue-700',
-                title: 'Mise aux Normes',
-                link: '/mise-aux-normes-electriques-ile-de-france/'
+                image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=500&h=350&fit=crop',
+                icon: '📢',
+                title: 'Mise aux Normes NFC 15-100',
+                points: [
+                  'Diagnostic électrique complet de votre installation',
+                  'Remplacement de tableau électrique ancien',
+                  'Installation de disjoncteurs différentiels',
+                  'Mise en place de la mise à la terre',
+                  'Protection des circuits électriques',
+                  'Certification de conformité Consuel'
+                ],
+                link: '/mise-aux-normes-electriques-ile-de-france/',
+                cta: 'DEMANDER UN DEVIS DE MISE EN NORMES'
               },
               {
+                image: 'https://images.unsplash.com/photo-1581092921461-eab62e97a782?w=500&h=350&fit=crop',
                 icon: '🏗️',
-                color: 'from-orange-500 to-orange-700',
-                title: 'Rénovation Électrique',
-                link: '/renovation-electrique-complete-ile-de-france/'
+                title: 'Rénovation Électrique Complète',
+                points: [
+                  'Rénovation d\'appartements anciens',
+                  'Rénovation de maisons individuelles',
+                  'Rénovation de bureaux et locaux commerciaux',
+                  'Mise en sécurité électrique (loi ALUR)',
+                  'Optimisation énergétique',
+                  'Gestion de projet clé en main'
+                ],
+                link: '/renovation-electrique-complete-ile-de-france/',
+                cta: 'DEMANDER UN DEVIS DE RÉNOVATION'
               },
               {
+                image: 'https://images.unsplash.com/photo-1558402529-d2638a7045e0?w=500&h=350&fit=crop',
                 icon: '🚨',
-                color: 'from-red-500 to-red-700',
-                title: 'Dépannage sur Devis',
-                link: '/depannage-electrique-ile-de-france/'
+                title: 'Dépannage Électrique sur Devis',
+                points: [
+                  'Panne de courant totale ou partielle',
+                  'Court-circuit et étincelles',
+                  'Disjoncteur qui saute régulièrement',
+                  'Prise ou interrupteur hors service',
+                  'Odeur de brûlé (urgence)',
+                  'Intervention sur rendez-vous'
+                ],
+                link: '/depannage-electrique-ile-de-france/',
+                cta: 'DEMANDER UN DEVIS DE DÉPANNAGE'
               },
               {
+                image: 'https://images.unsplash.com/photo-1555664424-778a6902201b?w=500&h=350&fit=crop',
                 icon: '⚡',
-                color: 'from-yellow-500 to-yellow-700',
-                title: 'Tableau Électrique',
-                link: '/tableau-electrique-protection-ile-de-france/'
+                title: 'Tableau Électrique et Protection',
+                points: [
+                  'Installation de tableau électrique neuf',
+                  'Remplacement de tableau ancien',
+                  'Ajout de circuits électriques',
+                  'Installation de parafoudre',
+                  'Pose de délesteur',
+                  'Marquage et étiquetage des circuits'
+                ],
+                link: '/tableau-electrique-protection-ile-de-france/',
+                cta: 'DEMANDER UN DEVIS TABLEAU'
               },
               {
+                image: 'https://images.unsplash.com/photo-1558002038-1091a1661116?w=500&h=350&fit=crop',
                 icon: '🏠',
-                color: 'from-purple-500 to-purple-700',
-                title: 'Domotique',
-                link: '/domotique-maison-connectee-ile-de-france/'
+                title: 'Domotique et Maison Connectée',
+                points: [
+                  'Éclairage connecté (Philips Hue)',
+                  'Thermostats connectés (Netatmo, Nest)',
+                  'Volets roulants motorisés',
+                  'Systèmes d\'alarme connectés',
+                  'Vidéosurveillance IP',
+                  'Contrôle via smartphone'
+                ],
+                link: '/domotique-maison-connectee-ile-de-france/',
+                cta: 'DEMANDER UN DEVIS DOMOTIQUE'
               },
               {
+                image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=500&h=350&fit=crop',
                 icon: '🔋',
-                color: 'from-green-500 to-green-700',
-                title: 'Borne Recharge VE',
-                link: '/borne-recharge-vehicule-electrique-ile-de-france/'
+                title: 'Borne de Recharge Véhicule Électrique',
+                points: [
+                  'Installation de Wallbox 7kW, 11kW, 22kW',
+                  'Borne en garage ou en extérieur',
+                  'Raccordement au tableau électrique',
+                  'Demande d\'aides ADVENIR (jusqu\'à 500€)',
+                  'Qualification IRVE',
+                  'Conseil personnalisé'
+                ],
+                link: '/borne-recharge-vehicule-electrique-ile-de-france/',
+                cta: 'DEMANDER UN DEVIS BORNE VE'
               }
             ].map((service, index) => (
-              <div key={index} className="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-2xl transition-all duration-300 group">
-                {/* Header with Gradient */}
-                <div className={`relative h-48 bg-gradient-to-br ${service.color} overflow-hidden`}>
-                  <div className="absolute inset-0 bg-black/10"></div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-8xl transform group-hover:scale-110 transition duration-300 filter drop-shadow-2xl">
-                      {service.icon}
-                    </div>
-                  </div>
+              <div key={index} className="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-2xl transition-all duration-300">
+                {/* Photo */}
+                <div className="relative h-56 overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition text-center">
-                    {service.title}
-                  </h3>
-                  
-                  {/* Single CTA Button */}
-                  <a href="#contact" className="block w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white text-center py-4 rounded-xl font-bold hover:from-blue-700 hover:to-blue-900 transition shadow-lg">
-                    📞 Demander un devis
+                  {/* Title Box */}
+                  <div className="border-2 border-blue-600 inline-block px-4 py-2 mb-6">
+                    <h3 className="text-lg font-bold text-gray-900 flex items-center">
+                      <span className="mr-2">{service.icon}</span>
+                      {service.title}
+                    </h3>
+                  </div>
+
+                  {/* Bullet List */}
+                  <ul className="space-y-3 mb-6">
+                    {service.points.map((point, i) => (
+                      <li key={i} className="flex items-start">
+                        <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                        </svg>
+                        <span className="text-gray-700 text-sm">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Link */}
+                  <a href={service.link} className="block text-blue-600 font-semibold hover:text-blue-800 transition mb-4">
+                    En savoir plus →
+                  </a>
+
+                  {/* CTA Button */}
+                  <a href="#contact" className="block w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 text-center py-4 rounded-lg font-bold hover:from-yellow-300 hover:to-yellow-400 transition shadow-lg text-sm">
+                    {service.cta}
                   </a>
                 </div>
               </div>
