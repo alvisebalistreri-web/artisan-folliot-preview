@@ -1,179 +1,109 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
+import Link from 'next/link'
+import { useState } from 'react'
 
 export default function Home() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<'paris' | '92' | '94'>('paris')
 
   return (
     <div className="min-h-screen bg-white">
-      {/* ==================== HEADER ==================== */}
-      <header className="bg-white shadow-md sticky top-0 z-50">
-        {/* Top Bar */}
-        <div className="bg-gradient-to-r from-blue-900 to-blue-700 text-white py-2">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center text-sm">
-              <div className="flex items-center space-x-6">
-                <span className="flex items-center">
-                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                  </svg>
-                  01 23 45 67 89
-                </span>
-                <span className="hidden md:flex items-center">
-                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-                  </svg>
-                  contact@artisanelectricienfolliot.com
-                </span>
-              </div>
-              <div className="hidden md:flex items-center space-x-2">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"/>
+      {/* ==================== NAVIGATION ==================== */}
+      <nav className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            <div className="flex items-center space-x-3">
+              <div className="bg-gradient-to-br from-blue-600 to-blue-800 text-white p-2 rounded-lg">
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
                 </svg>
-                <span>Lun-Ven 8h-19h | Sam 8h-17h</span>
+              </div>
+              <div>
+                <div className="text-xl font-bold text-gray-900">Artisan Électricien Folliot</div>
+                <div className="text-xs text-gray-500">Depuis 1990 — Paris 14ème</div>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Main Nav */}
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex justify-between items-center">
-            {/* Logo */}
-            <div className="flex items-center">
-              <div className="flex items-center space-x-3">
-                <div className="bg-gradient-to-br from-blue-600 to-blue-800 p-2 rounded-lg">
-                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"/>
-                  </svg>
-                </div>
-                <div>
-                  <h1 className="text-xl font-bold text-gray-900">Artisan Électricien Folliot</h1>
-                  <p className="text-xs text-blue-600 font-medium">Depuis 1990 • Paris 14ème</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Desktop Menu */}
             <div className="hidden lg:flex items-center space-x-8">
-              <a href="#accueil" className="text-gray-700 hover:text-blue-600 font-medium transition">Accueil</a>
-              <a href="#services" className="text-gray-700 hover:text-blue-600 font-medium transition">Services</a>
-              <a href="#zones" className="text-gray-700 hover:text-blue-600 font-medium transition">Zones</a>
-              <a href="#temoignages" className="text-gray-700 hover:text-blue-600 font-medium transition">Avis</a>
-              <a href="#contact" className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-2.5 rounded-lg font-semibold hover:shadow-lg transition transform hover:-translate-y-0.5">
-                Devis Gratuit
+              <a href="#about" className="text-gray-600 hover:text-blue-600 font-medium transition">À propos</a>
+              <a href="#services" className="text-gray-600 hover:text-blue-600 font-medium transition">Services</a>
+              <a href="#zones" className="text-gray-600 hover:text-blue-600 font-medium transition">Zones</a>
+              <a href="#temoignages" className="text-gray-600 hover:text-blue-600 font-medium transition">Avis</a>
+              <a href="#contact" className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-900 transition shadow-lg">
+                📞 Devis Gratuit
               </a>
             </div>
-
-            {/* Mobile Menu Button */}
-            <button 
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {mobileMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
           </div>
-
-          {/* Mobile Menu */}
-          {mobileMenuOpen && (
-            <div className="lg:hidden mt-4 pb-4 border-t pt-4">
-              <div className="flex flex-col space-y-3">
-                <a href="#accueil" className="text-gray-700 hover:text-blue-600 font-medium">Accueil</a>
-                <a href="#services" className="text-gray-700 hover:text-blue-600 font-medium">Services</a>
-                <a href="#zones" className="text-gray-700 hover:text-blue-600 font-medium">Zones</a>
-                <a href="#temoignages" className="text-gray-700 hover:text-blue-600 font-medium">Avis</a>
-                <a href="#contact" className="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-semibold text-center">Devis Gratuit</a>
-              </div>
-            </div>
-          )}
-        </nav>
-      </header>
+        </div>
+      </nav>
 
       {/* ==================== HERO SECTION ==================== */}
-      <section id="accueil" className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white py-20 lg:py-32 overflow-hidden">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
-          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M0 0 L50 100 L100 0 Z" fill="white"/>
-          </svg>
+          <div className="absolute inset-0" style={{backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px'}}></div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Text Content */}
-            <div>
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-                <svg className="w-5 h-5 mr-2 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                </svg>
-                <span className="text-sm font-medium">4.5/5 sur Google — +650 clients satisfaits</span>
+            {/* Left Content */}
+            <div className="text-white">
+              <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-yellow-500"></span>
+                </span>
+                <span className="text-yellow-400 font-medium text-sm">Disponible Lun-Sam 8h-19h</span>
               </div>
-              
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 leading-tight">
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-6">
                 Électricien Paris 14ème & Île-de-France
               </h1>
               
-              <p className="text-xl lg:text-2xl text-blue-100 mb-8 leading-relaxed">
+              <p className="text-xl text-blue-100 mb-8 leading-relaxed">
                 Votre électricien de confiance depuis <strong className="text-white font-semibold">1990</strong>. J'interviens personnellement pour tous vos travaux électriques à Paris et en Île-de-France.
               </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a href="#contact" className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-blue-900 px-8 py-4 rounded-lg font-bold text-lg hover:shadow-xl transition transform hover:-translate-y-1 text-center">
+
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                <a href="#contact" className="inline-flex items-center justify-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 px-8 py-4 rounded-xl font-bold text-lg hover:from-yellow-300 hover:to-yellow-400 transition transform hover:scale-105 shadow-2xl">
                   📞 Demander mon devis gratuit
                 </a>
-                <a href="#services" className="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition text-center">
-                  Découvrir mes services
-                </a>
+                <div className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-4 rounded-xl font-semibold">
+                  ⏰ Lundi-Samedi 8h-19h
+                </div>
               </div>
-              
-              {/* Trust Badges */}
-              <div className="mt-10 flex flex-wrap gap-4">
-                <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-                  <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                  </svg>
-                  <span className="text-sm font-medium">Certification RGE</span>
+
+              {/* Trust Badge */}
+              <div className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm rounded-xl p-4 inline-flex">
+                <div className="flex -space-x-2">
+                  {[1,2,3,4,5].map(i => (
+                    <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-500 border-2 border-white flex items-center justify-center text-white font-bold text-xs">
+                      ★
+                    </div>
+                  ))}
                 </div>
-                <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-                  <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                  </svg>
-                  <span className="text-sm font-medium">Garantie décennale</span>
-                </div>
-                <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-                  <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                  </svg>
-                  <span className="text-sm font-medium">Qualifelec</span>
+                <div>
+                  <div className="text-white font-bold">4.5/5 sur Google</div>
+                  <div className="text-blue-200 text-sm">+650 clients satisfaits</div>
                 </div>
               </div>
             </div>
-            
-            {/* Hero Image/Graphic */}
-            <div className="hidden lg:block">
-              <div className="relative">
-                <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-2xl p-1 transform rotate-3">
-                  <div className="bg-blue-900 rounded-xl p-8">
-                    <div className="text-center">
-                      <svg className="w-32 h-32 mx-auto text-yellow-400 mb-6" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"/>
-                      </svg>
-                      <div className="text-6xl font-bold text-white mb-2">30+</div>
-                      <div className="text-blue-200 text-lg">Années d'expérience</div>
-                      <div className="mt-6 pt-6 border-t border-blue-700">
-                        <div className="text-4xl font-bold text-yellow-400 mb-1">650+</div>
-                        <div className="text-blue-200">Interventions par an</div>
-                      </div>
+
+            {/* Right Visual */}
+            <div className="hidden lg:block relative">
+              <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8">
+                <div className="grid grid-cols-2 gap-6">
+                  {[
+                    { icon: '🏆', number: '30+', label: "Années d'expérience" },
+                    { icon: '⚡', number: '650+', label: 'Interventions / an' },
+                    { icon: '⭐', number: '4.5/5', label: 'Avis Google' },
+                    { icon: '🛡️', number: '100%', label: 'Garantie décennale' }
+                  ].map((stat, i) => (
+                    <div key={i} className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
+                      <div className="text-4xl mb-3">{stat.icon}</div>
+                      <div className="text-3xl font-black text-yellow-400 mb-1">{stat.number}</div>
+                      <div className="text-blue-100 text-sm">{stat.label}</div>
                     </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -184,97 +114,110 @@ export default function Home() {
       {/* ==================== ABOUT SECTION ==================== */}
       <section id="about" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Label */}
-          <div className="inline-block bg-blue-50 text-blue-600 px-4 py-2 rounded-lg font-semibold text-sm mb-6">
-            À PROPOS
+          <div className="text-center mb-16">
+            <div className="inline-block bg-blue-50 text-blue-600 px-4 py-2 rounded-lg font-semibold text-sm mb-4">À PROPOS</div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Artisan Électricien Folliot — Mon Engagement à Votre Service
+            </h2>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full"></div>
           </div>
 
-          {/* Title */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
-            Un Artisan Électricien à Votre Service<br />
-            <span className="text-blue-600">depuis 1990</span>
-          </h2>
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Left Content */}
+            <div>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Je m'appelle <strong className="text-blue-900 font-semibold">Monsieur Folliot</strong> et je suis l'artisan derrière <strong className="text-blue-900 font-semibold">Artisan Électricien Folliot</strong>. Depuis <strong className="text-blue-900 font-semibold">1990</strong>, j'ai bâti mon entreprise sur une valeur simple : <strong className="text-blue-900 font-semibold">chaque client mérite une intervention personnelle, soignée et transparente</strong>.
+              </p>
 
-          {/* Stats Box Blue */}
-          <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 mb-8 shadow-xl">
-            <div className="flex items-center space-x-6">
-              <div className="text-6xl sm:text-7xl font-black text-yellow-400">+30</div>
-              <div className="text-white">
-                <div className="text-xl sm:text-2xl font-bold">ANS D'EXPÉRIENCE</div>
-                <div className="text-blue-200 text-sm sm:text-base mt-1">À votre service depuis plus de trois décennies</div>
-              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Mon histoire</h3>
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                Tout a commencé il y a plus de <strong className="text-blue-900 font-semibold">30 ans</strong>, quand j'ai décidé de créer une entreprise d'électricité générale où <strong className="text-blue-900 font-semibold">je serais l'unique intervenant</strong>. Pas de sous-traitance, pas d'équipe inconnue : <strong className="text-blue-900 font-semibold">c'est moi qui intervient chez vous, du premier appel à la fin du chantier</strong>.
+              </p>
+
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed italic text-gray-600 border-l-4 border-blue-600 pl-6">
+                Cette approche, certains la trouvent "old school". Moi, je la vois comme la seule façon de garantir un travail <strong className="text-blue-900">parfaitement exécuté, dans les délais annoncés, au prix convenu</strong>.
+              </p>
+            </div>
+
+            {/* Right - Why Choose Me */}
+            <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-100 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-blue-900 mb-6">Pourquoi faire appel à moi ?</h3>
+              <ul className="space-y-4">
+                {[
+                  'Un seul interlocuteur — De la prise d\'appel à la fin du chantier, c\'est toujours moi',
+                  'Aucune sous-traitance — Je réalise moi-même toutes les interventions',
+                  'Ma réputation en jeu — Chaque chantier engage mon nom et ma réputation',
+                  'Plus de 650 interventions réussies chaque année',
+                  'Une note de 4.5/5 sur Google, vérifiée par mes clients',
+                  'Une garantie décennale sur tous mes travaux',
+                  'Une certification RGE (Reconnu Garant de l\'Environnement)',
+                  'Une qualification Qualifelec pour les installations électriques'
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <svg className="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                    </svg>
+                    <span className="text-gray-700">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
-          {/* Content Box */}
-          <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-100 rounded-2xl p-6 sm:p-8 mb-8">
-            <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Je m'appelle <strong className="text-blue-900 font-semibold">François Folliot</strong>, <strong className="text-blue-900 font-semibold">Fondateur d'Artisan Électricien Folliot</strong>. Depuis <strong className="text-blue-900 font-semibold">1990</strong> je suis votre <strong className="text-blue-900 font-semibold">expert en électricité basé dans le 14ème à Paris</strong>. Avec <strong className="text-blue-900 font-semibold">toutes ces années d'expérience</strong>, je mets mon <strong className="text-blue-900 font-semibold">savoir-faire</strong> au service des <strong className="text-blue-900 font-semibold">particuliers et professionnels</strong>. J'interviens rapidement pour tous vos travaux : <strong className="text-blue-900 font-semibold">dépannage, installation, rénovation et mise aux normes électriques</strong>.
-            </p>
-            
-            <h3 className="text-xl font-bold text-blue-900 mb-4">Pourquoi me faire confiance ?</h3>
-            <ul className="space-y-3">
-              {[
-                `Un seul interlocuteur — De la prise d'appel à la fin du chantier, c'est toujours moi`,
-                `Aucune sous-traitance — Je réalise moi-même toutes les interventions`,
-                `Ma réputation en jeu — Chaque chantier engage mon nom et ma réputation`,
-                `Plus de 650 interventions réussies chaque année`,
-                `Une note de 4.9/5 sur Google, vérifiée par mes clients`,
-                `Une garantie décennale sur tous mes travaux`,
-                `Certification RGE (Reconnu Garant de l'Environnement)`,
-                `Qualification Qualifelec pour les installations électriques`
-              ].map((item, index) => (
-                <li key={index} className="flex items-start">
-                  <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                  </svg>
-                  <span className="text-gray-700">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* CTA Button */}
-          <div className="flex flex-wrap gap-4">
-            <a href="#contact" className="inline-block bg-yellow-400 text-gray-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition transform hover:scale-105 shadow-lg">
-              DISCOVER MORE
-            </a>
-            <a href="#services" className="inline-block bg-white border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition">
-              Voir mes services
-            </a>
-          </div>
-
-          {/* Stats Grid - 4 Cards like mockup */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-            {[
-              { 
-                number: '+30', 
-                label: "ans d'expérience",
-                desc: "Une expertise éprouvée pour des installations électriques fiables et durables à Paris et en Île-de-France."
-              },
-              { 
-                number: '+650', 
-                label: 'clients satisfaits',
-                desc: 'Plus de 650 interventions réussies, avec des solutions adaptées aux besoins de nos clients.'
-              },
-              { 
-                number: '1', 
-                label: 'artisan électricien',
-                desc: 'Un professionnel unique et dédié pour un service personnalisé et de qualité et à votre écoute.'
-              },
-              { 
-                number: '4.9/5', 
-                label: 'avis google',
-                desc: 'Une note attribuée par nos clients satisfaits, à Paris et en petite couronne.'
-              }
-            ].map((stat, index) => (
-              <div key={index} className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 border border-gray-200 hover:border-blue-300 transition">
-                <div className="text-3xl font-black text-blue-600 mb-2">{stat.number}</div>
-                <div className="text-gray-800 font-semibold text-sm mb-3 uppercase">{stat.label}</div>
-                <div className="border-t border-gray-300 pt-3"></div>
-                <p className="text-gray-600 text-sm leading-relaxed mt-3">{stat.desc}</p>
+          {/* Hours & Zone */}
+          <div className="grid md:grid-cols-2 gap-8 mt-12">
+            {/* Hours */}
+            <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200">
+              <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                <span className="text-3xl mr-3">🕐</span>
+                Mes horaires d'intervention
+              </h3>
+              <div className="space-y-3">
+                <div className="flex justify-between py-3 border-b border-gray-100">
+                  <span className="text-gray-600">Lundi - Vendredi</span>
+                  <span className="font-semibold text-gray-900">8h00 - 19h00</span>
+                </div>
+                <div className="flex justify-between py-3 border-b border-gray-100">
+                  <span className="text-gray-600">Samedi</span>
+                  <span className="font-semibold text-gray-900">8h00 - 17h00</span>
+                </div>
+                <div className="flex justify-between py-3">
+                  <span className="text-gray-600">Dimanche et jours fériés</span>
+                  <span className="font-semibold text-red-600">Fermé</span>
+                </div>
               </div>
-            ))}
+              <p className="mt-6 text-sm text-gray-600 bg-blue-50 rounded-lg p-4">
+                <strong className="text-blue-900">Pour vos projets :</strong> Toutes mes interventions sont réalisées <strong className="text-blue-900">sur devis gratuit</strong>. Contactez-moi pour étudier votre projet et obtenir une estimation précise sous 24-48h.
+              </p>
+            </div>
+
+            {/* Zone */}
+            <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-blue-100">
+              <h3 className="text-xl font-bold text-blue-900 mb-6 flex items-center">
+                <span className="text-3xl mr-3">📍</span>
+                Ma zone d'intervention
+              </h3>
+              <p className="text-gray-700 mb-6">
+                Basé à <strong className="text-blue-900">Paris 14ème</strong>, j'interviens personnellement sur <strong className="text-blue-900">devis</strong> sur :
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <span className="text-blue-600 mr-3">📍</span>
+                  <span className="text-gray-700"><strong className="text-gray-900">Paris</strong> (tous arrondissements : 5ème, 6ème, 7ème, 12ème, 13ème, 14ème, 15ème)</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-600 mr-3">📍</span>
+                  <span className="text-gray-700"><strong className="text-gray-900">Hauts-de-Seine (92)</strong> : Vanves, Malakoff, Montrouge, Issy-les-Moulineaux, Meudon</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-600 mr-3">📍</span>
+                  <span className="text-gray-700"><strong className="text-gray-900">Val-de-Marne (94)</strong> : Bourg-la-Reine, Ivry-sur-Seine, Vincennes, Cachan, L'Haÿ-les-Roses</span>
+                </li>
+              </ul>
+              <a href="#zones" className="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                Découvrir mes zones d'intervention
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -283,70 +226,214 @@ export default function Home() {
       <section id="services" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <div className="inline-block bg-blue-50 text-blue-600 px-4 py-2 rounded-lg font-semibold text-sm mb-4">MES SERVICES</div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Mes Services d'Électricité Générale
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Qualité et expertise artisanale à votre service
             </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto mt-6"></div>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mt-6"></div>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: '🔌',
-                title: 'Mise aux Normes NFC 15-100',
-                description: 'Diagnostic complet, remplacement de tableau, mise à la terre, certification Consuel',
-                delay: 'Devis sous 24h'
+                title: 'Mise aux Normes Électriques NFC 15-100',
+                desc: 'La sécurité électrique de votre logement n\'est pas négociable. Diagnostic complet, remplacement de tableau, mise à la terre, certification Consuel.',
+                delay: 'Devis gratuit sous 24h, travaux planifiés sous 5-7 jours',
+                link: '/mise-aux-normes-electriques-ile-de-france/'
               },
               {
                 icon: '🏗️',
                 title: 'Rénovation Électrique Complète',
-                description: 'Appartements anciens, maisons, bureaux. Mise en sécurité loi ALUR',
-                delay: 'Devis sous 24h'
+                desc: 'Vous rénovez votre appartement ou votre maison ? Appartements anciens, maisons, bureaux. Mise en sécurité électrique (loi ALUR).',
+                delay: 'Devis sous 24h, travaux planifiés sous 5-7 jours',
+                link: '/renovation-electrique-complete-ile-de-france/'
               },
               {
                 icon: '🚨',
-                title: 'Dépannage sur Devis',
-                description: 'Pannes, court-circuits, disjoncteur. Intervention sur rendez-vous',
-                delay: 'Devis sous 24h'
+                title: 'Dépannage Électrique sur Devis',
+                desc: 'Un problème électrique ? J\'interviens sur rendez-vous et devis. Panne de courant, court-circuit, disjoncteur qui saute.',
+                delay: 'Lun-Ven 8h-19h | Sam 8h-17h',
+                link: '/depannage-electrique-ile-de-france/'
               },
               {
                 icon: '⚡',
-                title: 'Tableau Électrique',
-                description: 'Installation, remplacement, mise aux normes, parafoudre, délesteur',
-                delay: 'Devis sous 24h'
+                title: 'Tableau Électrique et Protection',
+                desc: 'Le tableau électrique est le cœur de votre installation. Installation, remplacement, ajout de circuits, parafoudre, délesteur.',
+                delay: 'Devis gratuit sous 24h, travaux sous 3-5 jours',
+                link: '/tableau-electrique-protection-ile-de-france/'
               },
               {
                 icon: '🏠',
-                title: 'Domotique & Maison Connectée',
-                description: 'Éclairage, thermostats, volets, alarmes. Contrôle via smartphone',
-                delay: 'Devis sous 48h'
+                title: 'Domotique et Maison Connectée',
+                desc: 'Modernisez votre habitat avec mes solutions de domotique. Éclairage connecté, thermostats, volets roulants, alarmes.',
+                delay: 'Devis sous 48h, installation planifiée sous 5-7 jours',
+                link: '/domotique-maison-connectee-ile-de-france/'
               },
               {
                 icon: '🔋',
-                title: 'Borne Recharge Véhicule Électrique',
-                description: 'Wallbox 7-22kW, aide ADVENIR, qualification IRVE',
-                delay: 'Devis sous 24h'
+                title: 'Borne de Recharge pour Véhicule Électrique',
+                desc: 'Anticipez l\'avenir avec une borne de recharge à domicile. Wallbox 7-22kW, aide ADVENIR, qualification IRVE.',
+                delay: 'Devis sous 24h, installation sous 3-5 jours',
+                link: '/borne-recharge-vehicule-electrique-ile-de-france/'
               }
             ].map((service, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition transform hover:-translate-y-1 overflow-hidden">
-                <div className="bg-gradient-to-br from-blue-600 to-blue-700 p-6">
-                  <div className="text-5xl mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-bold text-white mb-2">{service.title}</h3>
+              <div key={index} className="bg-white rounded-2xl p-8 border border-gray-200 hover:border-blue-300 hover:shadow-xl transition-all duration-300 group">
+                <div className="text-5xl mb-6">{service.icon}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {service.desc}
+                </p>
+                <div className="bg-blue-50 rounded-lg p-4 mb-6">
+                  <div className="text-sm text-blue-800">
+                    <span className="font-semibold">⏱️ Délai :</span> {service.delay}
+                  </div>
                 </div>
-                <div className="p-6">
-                  <p className="text-gray-700 mb-4 leading-relaxed">{service.description}</p>
-                  <div className="flex items-center text-blue-600 font-semibold">
-                    <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd"/>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a href={service.link} className="flex-1 text-center text-blue-600 font-semibold hover:text-blue-800 transition py-2">
+                    En savoir plus →
+                  </a>
+                  <a href="#contact" className="flex-1 bg-gradient-to-r from-blue-600 to-blue-800 text-white text-center py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-900 transition">
+                    Demander un devis
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== WHY CHOOSE ME ==================== */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-block bg-blue-50 text-blue-600 px-4 py-2 rounded-lg font-semibold text-sm mb-4">POURQUOI ME CHOISIR</div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Pourquoi Choisir Artisan Électricien Folliot ?
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Choisir le bon électricien est crucial pour la sécurité et la durabilité de votre installation
+            </p>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mt-6"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                icon: '⭐',
+                title: '30+ Ans d\'Expérience',
+                desc: 'Depuis 1990, j\'ai réalisé des milliers d\'interventions. Expertise tous types de logements : haussmanniens, maisons, bureaux, copropriétés.',
+                color: 'from-yellow-400 to-yellow-500'
+              },
+              {
+                icon: '📋',
+                title: 'Devis Gratuit et Transparent',
+                desc: 'Appel → Visite gratuite → Devis détaillé sous 24-48h → Validation. Gratuit, détaillé, transparent, respecté.',
+                color: 'from-blue-400 to-blue-500'
+              },
+              {
+                icon: '🛡️',
+                title: 'Garantie Décennale',
+                desc: 'Toutes mes interventions sont couvertes : garantie décennale (10 ans), RC Pro, certification RGE, qualification Qualifelec.',
+                color: 'from-green-400 to-green-500'
+              },
+              {
+                icon: '💬',
+                title: 'Avis Clients Vérifiés',
+                desc: '4.5/5 sur Google. "Monsieur Folliot a rénové notre appartement de 80m² dans le 14ème. Travail impeccable." — Marie L.',
+                color: 'from-purple-400 to-purple-500'
+              }
+            ].map((reason, index) => (
+              <div key={index} className="text-center">
+                <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br ${reason.color} text-white text-4xl mb-6 shadow-lg`}>
+                  {reason.icon}
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{reason.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{reason.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== TESTIMONIALS ==================== */}
+      <section id="temoignages" className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-block bg-blue-50 text-blue-600 px-4 py-2 rounded-lg font-semibold text-sm mb-4">TÉMOIGNAGES</div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Ce Que Disent Mes Clients
+            </h2>
+            <p className="text-xl text-gray-600">
+              Plus de 650 clients satisfaits en Île-de-France
+            </p>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mt-6"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                stars: 5,
+                text: 'Nous avons fait appel à Monsieur Folliot pour la rénovation complète de notre appartement de 80m² dans le 14ème. Du devis à la livraison, tout s\'est parfaitement déroulé. Il a été professionnel, ponctuel et le travail est impeccable.',
+                author: 'Marie L.',
+                location: 'Paris 14ème',
+                project: 'Rénovation électrique complète — T3 80m²'
+              },
+              {
+                stars: 5,
+                text: 'Un court-circuit un mardi matin. J\'ai appelé Monsieur Folliot, il m\'a envoyé un devis sous 24h. Intervention planifiée 2 jours après, arrivé à l\'heure, problème résolu en 1h. Tarif transparent, travail soigné.',
+                author: 'Sophie M.',
+                location: 'Vanves',
+                project: 'Dépannage électrique — Prise électrique'
+              },
+              {
+                stars: 5,
+                text: 'Notre maison des années 70 n\'était plus aux normes. Monsieur Folliot a réalisé la mise aux normes complète : nouveau tableau, mise à la terre, protection des circuits. Certification Consuel obtenue sans problème.',
+                author: 'Thomas R.',
+                location: 'Issy-les-Moulineaux',
+                project: 'Mise aux normes NFC 15-100 — Maison 120m²'
+              },
+              {
+                stars: 5,
+                text: 'Nous voulions rendre notre maison plus intelligente (éclairage, volets, thermostat). Monsieur Folliot nous a conseillé sur les meilleures solutions et a tout installé parfaitement. On contrôle tout depuis notre smartphone.',
+                author: 'Julie & Marc',
+                location: 'Montrouge',
+                project: 'Installation domotique complète'
+              }
+            ].map((testimonial, index) => (
+              <div key={index} className="bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-xl transition">
+                <div className="flex mb-4">
+                  {[...Array(testimonial.stars)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                     </svg>
-                    {service.delay}
+                  ))}
+                </div>
+                <p className="text-gray-700 mb-6 leading-relaxed italic">
+                  "{testimonial.text}"
+                </p>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="font-bold text-gray-900">{testimonial.author}</div>
+                    <div className="text-sm text-gray-500">{testimonial.location}</div>
+                  </div>
+                  <div className="text-sm text-blue-600 bg-blue-50 px-4 py-2 rounded-lg">
+                    {testimonial.project}
                   </div>
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <a href="https://goo.gl/maps/" className="inline-flex items-center bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-900 transition shadow-lg">
+              ⭐ Lire tous mes avis Google
+            </a>
           </div>
         </div>
       </section>
@@ -355,256 +442,283 @@ export default function Home() {
       <section id="zones" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <div className="inline-block bg-blue-50 text-blue-600 px-4 py-2 rounded-lg font-semibold text-sm mb-4">ZONES D'INTERVENTION</div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Mes Zones d'Intervention en Île-de-France
             </h2>
-            <p className="text-xl text-gray-600">
-              J'interviens personnellement sur devis
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              J'interviens personnellement sur devis sur l'ensemble de l'Île-de-France
             </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto mt-6"></div>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mt-6"></div>
           </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Paris (75)',
-                areas: ['Paris 5ème', 'Paris 6ème', 'Paris 7ème', 'Paris 12ème', 'Paris 13ème', 'Paris 14ème', 'Paris 15ème'],
-                icon: '🏛️'
-              },
-              {
-                title: 'Hauts-de-Seine (92)',
-                areas: ['Vanves', 'Malakoff', 'Montrouge', 'Issy-les-Moulineaux', 'Meudon'],
-                icon: '🏢'
-              },
-              {
-                title: 'Val-de-Marne (94)',
-                areas: ['Bourg-la-Reine', 'Ivry-sur-Seine', 'Vincennes', 'Cachan', "L'Haÿ-les-Roses"],
-                icon: '🏘️'
-              }
-            ].map((zone, index) => (
-              <div key={index} className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8">
-                <div className="flex items-center mb-6">
-                  <span className="text-4xl mr-4">{zone.icon}</span>
-                  <h3 className="text-2xl font-bold text-blue-900">{zone.title}</h3>
-                </div>
-                <ul className="space-y-2">
-                  {zone.areas.map((area, areaIndex) => (
-                    <li key={areaIndex} className="flex items-center text-gray-700">
-                      <svg className="w-5 h-5 text-blue-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd"/>
-                      </svg>
-                      {area}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ==================== TESTIMONIALS SECTION ==================== */}
-      <section id="temoignages" className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-              Ce Que Disent Mes Clients
-            </h2>
-            <p className="text-xl text-gray-600">
-              Plus de 650 clients satisfaits en Île-de-France
-            </p>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto mt-6"></div>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                name: 'Marie L.',
-                location: 'Paris 14ème',
-                rating: 5,
-                text: `Monsieur Folliot a rénové notre appartement de 80m² dans le 14ème. Du devis à la livraison, tout s'est parfaitement déroulé. Il a été professionnel, ponctuel et le travail est impeccable.`,
-                project: 'Rénovation électrique complète — T3 80m²'
-              },
-              {
-                name: 'Pierre D.',
-                location: 'Montrouge',
-                rating: 5,
-                text: 'Devis gratuit respecté, travail soigné. Notre appartement a été entièrement rénové en 5 jours. Excellent rapport qualité-prix.',
-                project: 'Rénovation électrique'
-              },
-              {
-                name: 'Sophie M.',
-                location: 'Vanves',
-                rating: 5,
-                text: 'Intervention rapide pour un court-circuit. Devis reçu sous 24h, travail impeccable. Tarif transparent, rien à redire.',
-                project: 'Dépannage électrique'
-              },
-              {
-                name: 'Thomas R.',
-                location: 'Issy-les-Moulineaux',
-                rating: 5,
-                text: 'Mise aux normes complète de notre maison des années 70. Travail impeccable, certification Consuel obtenue sans problème.',
-                project: 'Mise aux normes NFC 15-100 — Maison 120m²'
-              }
-            ].map((testimonial, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg p-8">
-                <div className="flex items-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <svg key={i} className="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-6 leading-relaxed italic">"{testimonial.text}"</p>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="font-bold text-gray-900">{testimonial.name}</div>
-                    <div className="text-gray-600 text-sm">{testimonial.location}</div>
-                  </div>
-                  <div className="text-blue-600 text-sm font-medium">{testimonial.project}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== CTA SECTION ==================== */}
-      <section id="contact" className="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Prêt à Démarrer Votre Projet Électrique ?
-          </h2>
-          <p className="text-xl text-blue-100 mb-10">
-            Contactez-moi dès aujourd'hui — Devis gratuit en 24-48h
-          </p>
-          
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-10">
-            <div className="grid md:grid-cols-3 gap-6">
-              <div>
-                <div className="text-3xl mb-2">📍</div>
-                <div className="font-semibold mb-1">Adresse</div>
-                <div className="text-blue-100 text-sm">Paris 14ème, Île-de-France</div>
-              </div>
-              <div>
-                <div className="text-3xl mb-2">📞</div>
-                <div className="font-semibold mb-1">Téléphone</div>
-                <div className="text-blue-100 text-sm">01 23 45 67 89</div>
-              </div>
-              <div>
-                <div className="text-3xl mb-2">🕐</div>
-                <div className="font-semibold mb-1">Horaires</div>
-                <div className="text-blue-100 text-sm">Lun-Ven 8h-19h | Sam 8h-17h</div>
-              </div>
+          {/* Tabs */}
+          <div className="flex justify-center mb-12">
+            <div className="bg-gray-100 rounded-xl p-1 inline-flex">
+              <button
+                onClick={() => setActiveTab('paris')}
+                className={`px-6 py-3 rounded-lg font-semibold transition ${activeTab === 'paris' ? 'bg-white text-blue-600 shadow' : 'text-gray-600 hover:text-gray-900'}`}
+              >
+                Paris (75)
+              </button>
+              <button
+                onClick={() => setActiveTab('92')}
+                className={`px-6 py-3 rounded-lg font-semibold transition ${activeTab === '92' ? 'bg-white text-blue-600 shadow' : 'text-gray-600 hover:text-gray-900'}`}
+              >
+                Hauts-de-Seine (92)
+              </button>
+              <button
+                onClick={() => setActiveTab('94')}
+                className={`px-6 py-3 rounded-lg font-semibold transition ${activeTab === '94' ? 'bg-white text-blue-600 shadow' : 'text-gray-600 hover:text-gray-900'}`}
+              >
+                Val-de-Marne (94)
+              </button>
             </div>
           </div>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:0123456789" className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-blue-900 px-8 py-4 rounded-lg font-bold text-lg hover:shadow-xl transition transform hover:-translate-y-1">
-              📞 Appeler maintenant
-            </a>
-            <a href="mailto:contact@artisanelectricienfolliot.com" className="border-2 border-white/30 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white/10 transition">
-              📧 Envoyer un email
+
+          {/* Content */}
+          {activeTab === 'paris' && (
+            <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-blue-100">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">📍 Paris — Tous Arrondissements (75)</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[
+                  { arr: '5ème', quartiers: 'Quartier Latin, Panthéon, Sorbonne' },
+                  { arr: '6ème', quartiers: 'Saint-Germain-des-Prés, Luxembourg' },
+                  { arr: '7ème', quartiers: 'Gros-Caillou, Invalides, École-Militaire' },
+                  { arr: '12ème', quartiers: 'Bercy, Quinze-Vingts, Gare de Lyon' },
+                  { arr: '13ème', quartiers: 'Butte-aux-Cailles, Austerlitz, Gobelins' },
+                  { arr: '14ème', quartiers: 'Montparnasse, Alésia, Santé (Mon secteur)' },
+                  { arr: '15ème', quartiers: 'Vaugirard, Grenelle, Javel, Necker' }
+                ].map((item, i) => (
+                  <div key={i} className="bg-white rounded-xl p-4 border border-gray-200">
+                    <div className="font-bold text-blue-600 mb-1">Paris {item.arr}</div>
+                    <div className="text-sm text-gray-600">{item.quartiers}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activeTab === '92' && (
+            <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-blue-100">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">📍 Hauts-de-Seine — 92</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[
+                  { ville: 'Vanves', quartiers: 'Centre-ville, Mairie, Parc Frédéric-Pic' },
+                  { ville: 'Malakoff', quartiers: 'Centre-ville, Mairie, Parc de la Vanne' },
+                  { ville: 'Montrouge', quartiers: 'Centre-ville, Mairie, Parc départemental' },
+                  { ville: 'Issy-les-Moulineaux', quartiers: 'Centre-ville, Val de Seine, Îles' },
+                  { ville: 'Meudon', quartiers: 'Meudon-Centre, Meudon-la-Forêt, Bellevue' }
+                ].map((item, i) => (
+                  <div key={i} className="bg-white rounded-xl p-4 border border-gray-200">
+                    <div className="font-bold text-blue-600 mb-1">{item.ville}</div>
+                    <div className="text-sm text-gray-600">{item.quartiers}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activeTab === '94' && (
+            <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-blue-100">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">📍 Val-de-Marne — 94</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[
+                  { ville: 'Bourg-la-Reine', quartiers: 'Centre-ville, Mairie, Parc de la Bièvre' },
+                  { ville: 'Ivry-sur-Seine', quartiers: 'Centre-ville, Mairie, Plateau' },
+                  { ville: 'Vincennes', quartiers: 'Centre-ville, Château, Parc Floral' },
+                  { ville: 'Cachan', quartiers: 'Centre-ville, Mairie, Gare RER B' },
+                  { ville: "L'Haÿ-les-Roses", quartiers: 'Centre-ville, Mairie, Cité des Fleurs' }
+                ].map((item, i) => (
+                  <div key={i} className="bg-white rounded-xl p-4 border border-gray-200">
+                    <div className="font-bold text-blue-600 mb-1">{item.ville}</div>
+                    <div className="text-sm text-gray-600">{item.quartiers}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="text-center mt-12">
+            <a href="#contact" className="inline-flex items-center bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-900 transition shadow-lg">
+              📞 Demander un devis pour votre ville
             </a>
           </div>
-          
-          <div className="mt-10 flex flex-wrap justify-center gap-4 text-sm">
-            <span className="flex items-center">
-              <svg className="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-              </svg>
-              Devis gratuit et sans engagement
-            </span>
-            <span className="flex items-center">
-              <svg className="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-              </svg>
-              Intervention sur rendez-vous
-            </span>
-            <span className="flex items-center">
-              <svg className="w-5 h-5 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-              </svg>
-              Garantie décennale
-            </span>
+        </div>
+      </section>
+
+      {/* ==================== PARTNERS ==================== */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-block bg-blue-50 text-blue-600 px-4 py-2 rounded-lg font-semibold text-sm mb-4">PARTENAIRES</div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Mes Partenaires de Confiance
+            </h2>
+            <p className="text-xl text-gray-600">
+              Je collabore avec les marques leaders du secteur électrique
+            </p>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-blue-800 mx-auto rounded-full mt-6"></div>
+          </div>
+
+          <div className="flex flex-wrap justify-center items-center gap-8">
+            {[
+              { name: 'Legrand', color: 'from-blue-600 to-blue-800' },
+              { name: 'Schneider Electric', color: 'from-green-600 to-green-800' },
+              { name: 'Somfy', color: 'from-blue-400 to-blue-600' },
+              { name: 'Philips Hue', color: 'from-purple-400 to-purple-600' },
+              { name: 'Hager', color: 'from-blue-700 to-blue-900' },
+              { name: 'Legrand Netatmo', color: 'from-orange-400 to-orange-600' }
+            ].map((partner, index) => (
+              <div key={index} className={`bg-gradient-to-br ${partner.color} text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg`}>
+                {partner.name}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ==================== CTA FINAL ==================== */}
+      <section id="contact" className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+              Prêt à Démarrer Votre Projet Électrique ?
+            </h2>
+            <p className="text-xl text-blue-100">
+              Contactez-moi dès aujourd'hui — Devis gratuit en 24-48h
+            </p>
+            <div className="w-24 h-1.5 bg-gradient-to-r from-yellow-400 to-yellow-500 mx-auto rounded-full mt-6"></div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Contact Info */}
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
+              <h3 className="text-2xl font-bold text-white mb-6">📍 Mes Coordonnées</h3>
+              <div className="space-y-4">
+                <div className="flex items-center text-white">
+                  <span className="text-2xl mr-4">📍</span>
+                  <div>
+                    <div className="font-semibold">Adresse</div>
+                    <div className="text-blue-200">Paris 14ème, Île-de-France</div>
+                  </div>
+                </div>
+                <div className="flex items-center text-white">
+                  <span className="text-2xl mr-4">📞</span>
+                  <div>
+                    <div className="font-semibold">Téléphone</div>
+                    <div className="text-blue-200">[Votre numéro]</div>
+                  </div>
+                </div>
+                <div className="flex items-center text-white">
+                  <span className="text-2xl mr-4">📧</span>
+                  <div>
+                    <div className="font-semibold">Email</div>
+                    <div className="text-blue-200">[Votre email]</div>
+                  </div>
+                </div>
+                <div className="flex items-center text-white">
+                  <span className="text-2xl mr-4">🕐</span>
+                  <div>
+                    <div className="font-semibold">Horaires</div>
+                    <div className="text-blue-200">Lun-Ven 8h-19h | Sam 8h-17h</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Guarantees */}
+            <div className="bg-white rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">✅ Mes Garanties</h3>
+              <ul className="space-y-4">
+                {[
+                  'Devis gratuit et sans engagement',
+                  'Intervention sur rendez-vous',
+                  'Garantie décennale',
+                  'Certification RGE Qualifelec',
+                  'Paiement sécurisé'
+                ].map((item, index) => (
+                  <li key={index} className="flex items-center">
+                    <svg className="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                    </svg>
+                    <span className="text-gray-700 font-medium">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
+            <a href="tel:" className="inline-flex items-center justify-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 px-10 py-5 rounded-xl font-bold text-lg hover:from-yellow-300 hover:to-yellow-400 transition transform hover:scale-105 shadow-2xl">
+              📞 Demander mon devis gratuit
+            </a>
+            <a href="#services" className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm border border-white/30 text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-white/20 transition">
+              📋 Comment se déroule un devis ?
+            </a>
           </div>
         </div>
       </section>
 
       {/* ==================== FOOTER ==================== */}
-      <footer className="bg-gray-900 text-gray-300 py-12">
+      <footer className="bg-gray-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Column 1 */}
             <div>
-              <h3 className="text-white font-bold text-lg mb-4">Artisan Électricien Folliot</h3>
-              <p className="text-sm leading-relaxed mb-4">
+              <h4 className="text-lg font-bold mb-4">Artisan Électricien Folliot</h4>
+              <p className="text-gray-400 mb-4">
                 Votre électricien de confiance depuis 1990 à Paris 14ème. J'interviens personnellement sur devis sur Paris et toute l'Île-de-France.
               </p>
-              <div className="space-y-2 text-sm">
-                <div className="flex items-center">
-                  <svg className="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                  </svg>
-                  Certification RGE
-                </div>
-                <div className="flex items-center">
-                  <svg className="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                  </svg>
-                  Qualification Qualifelec
-                </div>
-                <div className="flex items-center">
-                  <svg className="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                  </svg>
-                  Garantie décennale
-                </div>
-              </div>
+              <ul className="space-y-2 text-gray-400 text-sm">
+                <li>✅ Certification RGE</li>
+                <li>✅ Qualification Qualifelec</li>
+                <li>✅ Garantie décennale</li>
+                <li>✅ Assurance RC Pro</li>
+              </ul>
             </div>
-            
+
             {/* Column 2 */}
             <div>
-              <h3 className="text-white font-bold text-lg mb-4">Mes Services</h3>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition">Mise aux normes électriques</a></li>
-                <li><a href="#" className="hover:text-white transition">Rénovation électrique</a></li>
-                <li><a href="#" className="hover:text-white transition">Dépannage sur devis</a></li>
-                <li><a href="#" className="hover:text-white transition">Tableau électrique</a></li>
-                <li><a href="#" className="hover:text-white transition">Domotique</a></li>
-                <li><a href="#" className="hover:text-white transition">Borne recharge VE</a></li>
+              <h4 className="text-lg font-bold mb-4">Mes Services</h4>
+              <ul className="space-y-2">
+                {['Mise aux normes', 'Rénovation électrique', 'Dépannage sur devis', 'Tableau électrique', 'Domotique', 'Borne recharge VE'].map((item, i) => (
+                  <li key={i}>
+                    <a href="#services" className="text-gray-400 hover:text-white transition text-sm">{item}</a>
+                  </li>
+                ))}
               </ul>
             </div>
-            
+
             {/* Column 3 */}
             <div>
-              <h3 className="text-white font-bold text-lg mb-4">Zones d'Intervention</h3>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition">Paris (tous arrondissements)</a></li>
-                <li><a href="#" className="hover:text-white transition">Hauts-de-Seine (92)</a></li>
-                <li><a href="#" className="hover:text-white transition">Val-de-Marne (94)</a></li>
+              <h4 className="text-lg font-bold mb-4">Zones</h4>
+              <ul className="space-y-2">
+                <li className="text-gray-400 text-sm"><strong className="text-white">Paris :</strong> 5ème, 6ème, 7ème, 14ème, 15ème</li>
+                <li className="text-gray-400 text-sm"><strong className="text-white">92 :</strong> Vanves, Montrouge, Issy</li>
+                <li className="text-gray-400 text-sm"><strong className="text-white">94 :</strong> Bourg-la-Reine, Vincennes</li>
               </ul>
             </div>
-            
+
             {/* Column 4 */}
             <div>
-              <h3 className="text-white font-bold text-lg mb-4">Contact</h3>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-white transition">Mentions légales</a></li>
-                <li><a href="#" className="hover:text-white transition">Politique de confidentialité</a></li>
-                <li><a href="#" className="hover:text-white transition">CGV</a></li>
-                <li><a href="#" className="hover:text-white transition">Plan du site</a></li>
-                <li><a href="#" className="hover:text-white transition">Contact</a></li>
+              <h4 className="text-lg font-bold mb-4">Légal</h4>
+              <ul className="space-y-2">
+                {['Mentions légales', 'Politique de confidentialité', 'CGV', 'Plan du site', 'Contact'].map((item, i) => (
+                  <li key={i}>
+                    <a href="#" className="text-gray-400 hover:text-white transition text-sm">{item}</a>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
-          
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-sm">
-            <p>&copy; 2026 Artisan Électricien Folliot — Tous droits réservés.</p>
-            <p className="mt-2 text-gray-500">Site réalisé avec ❤️ à Paris 14ème</p>
+
+          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400 text-sm">
+            <p>© 2026 Artisan Électricien Folliot — Tous droits réservés.</p>
+            <p className="mt-2">Site réalisé avec ❤️ à Paris 14ème.</p>
           </div>
         </div>
       </footer>
     </div>
-  );
+  )
 }
