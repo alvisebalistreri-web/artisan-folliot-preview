@@ -28,9 +28,9 @@ export default function Home() {
               <a href="#services" className="text-gray-600 hover:text-blue-600 font-medium transition">Services</a>
               <a href="#zones" className="text-gray-600 hover:text-blue-600 font-medium transition">Zones</a>
               <a href="#temoignages" className="text-gray-600 hover:text-blue-600 font-medium transition">Avis</a>
-              <a href="#contact" className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-900 transition shadow-lg">
+              <Link href="/contact" className="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-900 transition shadow-lg">
                 📞 Devis Gratuit
-              </a>
+              </Link>
             </div>
           </div>
         </div>
