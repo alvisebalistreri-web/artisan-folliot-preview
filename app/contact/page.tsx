@@ -353,8 +353,8 @@ export default function Contact() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: '🛡️', title: 'Garantie décennale', desc: 'Tous mes travaux sont couverts 10 ans' },
-              { icon: '✅', title: 'Certification RGE', desc: 'Reconnu Garant de l'Environnement' },
-              { icon: '⭐', title: 'Qualification Qualifelec', desc: 'Référence dans l'électricité' },
+              { icon: '✅', title: 'Certification RGE', desc: `Reconnu Garant de l'Environnement` },
+              { icon: '⭐', title: 'Qualification Qualifelec', desc: `Référence dans l'électricité` },
               { icon: '📋', title: 'Devis transparent', desc: 'Pas de coûts cachés' }
             ].map((item, index) => (
               <div key={index} className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border border-blue-100 text-center">
